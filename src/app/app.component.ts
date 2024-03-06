@@ -15,12 +15,21 @@ import { RouterOutlet } from '@angular/router';
 })
 
 // typeScript class
+// mechanism that coordinates interaction between the model/data and the view of the app
 export class AppComponent {
 
+  // a way of clearly separating the data/model in our app from the view (html template)
   data = {
-    randomProperty:'Foos!'
-  };
+    title:'<h1>newbie</h1><script>alert("Attack")</script>' // secure way to update a view of our data - safeguard against common security attacks
+  }; // built in change detection mechanism and can also auto sync data with view
 
-  // property title
-  title = 'Angular Core Deep Dive';
+  onLogoClicked() {
+    alert('Hello world');
+  }
+  onKeyUp(newTitle:string){
+
+    this.data.title = newTitle;
+
+  }
+
 }
